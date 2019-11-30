@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>原型和原型链 | Hexo</title>
+  <title>原型和原型链 | 波阿斯</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link rel="shortcut icon" href="/">
+  <link rel="shortcut icon" href="/favicon.ico">
   <link rel="stylesheet" href="/css/app.css">
   <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
   
@@ -12,6 +12,18 @@
 
 <body>
   <nav class="app-nav">
+  
+    
+      <a href="/.">home</a>
+    
+  
+    
+      <a href="/archives">archive</a>
+    
+  
+    
+      <a href="/atom.xml">rss</a>
+    
   
 </nav>
 
@@ -30,6 +42,7 @@
 <p>原型：</p>
 </blockquote>
 <h4>在 JavaScript 中，每当定义一个函数数据类型(普通函数、类)时候，都会天生自带一个 prototype 属性，这个属性指向函数的原型对象，并且这个属性是一个对象数据类型的值。</h4>
+<h4>原型对象就相当于一个公共的区域，所有同一个类的实例都可以访问到这个原型对象，我们可以将对象中共有的内容，统一设置到原型对象中。</h4>
 <pre><code>    var arr = []
     console.log(arr.__proto__)//Array
     console.log(arr.__proto__.__proto__)//Object
@@ -48,9 +61,14 @@
 
     //因为MyArray中没有push的方法，就去Array这个数组对象中去寻找，Array中也只有一个length属性，但是Array的原型中有该方法，所有push可以用，length也可以用
 </code></pre>
+<h4>每一个对象数据类型(普通的对象、实例、prototype......)也天生自带一个属性<strong>proto</strong>，属性值是当前实例所属类的原型(prototype)。原型对象中有一个属性 constructor, 它指向函数对象。</h4>
 <blockquote>
 <p>原型链：</p>
 </blockquote>
+<h4>在 JavaScript 中万物都是对象，对象和对象之间也有关系，并不是孤立存在的。对象之间的继承关系，在 JavaScript 中是通过 prototype 对象指向父类对象，直到指向 Object 对象为止，这样就形成了一个原型指向的链条，专业术语称之为原型链。</h4>
+<h4>举例说明:person → Person → Object ，普通人继承人类，人类继承对象类</h4>
+<h4>当我们访问对象的一个属性或方法时，它会先在对象自身中寻找，如果有则直接使用，如果没有则会去原型对象中寻找，如果找到则直接使用。如果没有则去原型的原型中寻找,直到找到 Object 对象的原型，Object 对象的原型没有原型，如果在 Object 原型中依然没有找到，则返回 undefined。</h4>
+<h4>我们可以使用对象的 hasOwnProperty()来检查对象自身中是否含有该属性；使用 in 检查对象中是否含有某个属性时，如果对象中没有但是原型中有，也会返回 true</h4>
 <h4>原型链就是利用了切换原型指向的原理，将一个构造函数的原型指向另一个构造函数的的实例对象来实现继承</h4>
 <pre><code>    function Box(){
     this.name = '黎明';
@@ -81,10 +99,10 @@
 
   <div class="sharing grid">
   <section class="profile grid-item grid">
-    <img class="avatar" src="/" alt="avatar" />
+    <img class="avatar" src="/images/1.jpg" alt="avatar" />
     <div class="grid-item">
-      <p class="title"> Hexo </p>
-      <p class="subtitle">  </p>
+      <p class="title"> 波阿斯 </p>
+      <p class="subtitle"> Sharp unstoppable </p>
     <div>
   </section>
 
@@ -122,6 +140,29 @@
 
   </section>
 </div>
+
+
+  
+    
+<section class="article-comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+<script>
+  var disqus_shortname = 'drakeleung';
+  
+  var disqus_url = 'http://yoursite.com/2018/01/03/%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E9%93%BE/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
 
 
   
