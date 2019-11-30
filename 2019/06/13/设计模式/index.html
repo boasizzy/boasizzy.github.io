@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>设计模式 | 波阿斯</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/app.css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+  
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+    
+      <a href="/.">home</a>
+    
+  
+    
+      <a href="/archives">archive</a>
+    
+  
+    
+      <a href="/atom.xml">rss</a>
+    
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/2019/06/13/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">June 13 2019</p>
+  </section>
+
+  <section class="article-entry">
+    <blockquote>
+<p>设计模式的定义：在面向对象软件设计过程中针对特定问题的简洁而优雅的解决方案</p>
+</blockquote>
+<h2>单例模式</h2>
+<h4>单例模式的定义：保证一个类仅有一个实例，并提供一个访问它的全局访问点。实现的方法为先判断实例存在与否，如果存在则直接返回，如果不存在就创建了再返回，这就确保了一个类只有一个实例对象。</h4>
+<h5>dome1</h5>
+<pre><code>class CreateUser {
+    static shareInstance(){
+        if(!CreateUser.ins){
+            CreateUser.ins = new CreateUser('aa')
+        }
+        return CreateUser.ins;
+    }
+    constructor(name) {
+        this.name = name;
+        this.getName();
+    }
+    getName() {
+        return this.name;
+    }
+}
+let c1 = CreateUser.shareInstance()
+let c2 = CreateUser.shareInstance()
+console.log(c1==c2)
+</code></pre>
+<h5>demo2</h5>
+<pre><code>let arr = [];
+let arr2 = []
+console.log(arr.__proto__ === arr2.__proto__)
+console.log(arr==arr2)
+console.log(Math)
+console.log(Math == Math)
+Math.random()
+Math.random()
+console.log(Math==Math)
+//静态方法
+// 实例方法
+// arr.push()
+// Array.from()
+// Array.isArray()
+class Dog{
+	//统一接口
+	//共享实例
+	static shareInstance(){
+		if(!Dog.ins){
+			console.log('shareInstance 执行')
+			Dog.ins = new Dog()
+		}
+		return Dog.ins;
+	}
+	constructor(){
+
+		}
+	wang(){
+
+    }
+}
+
+let d1 = new Dog()
+let d2 = new Dog()
+console.log(d1==d2)
+
+//对外提供统一的实例
+let d3 = Dog.shareInstance()
+let d4 = Dog.shareInstance()
+let d5 = Dog.shareInstance()
+console.log(d3 === d4)
+console.log(d5 === d4)
+
+class AlertView{
+	static shareInstance(){
+
+    }
+	constructor(arg) {
+
+	}
+}
+
+let a1 = AlertView.shareInstance()
+a1.show({
+	title:'你好',
+	content:'测试一下',
+	okCallback(){
+		console.log('点了确定')
+	},
+
+    cancleCallback(){
+		console.log('点了取消或者取消')
+
+    }
+})
+</code></pre>
+
+  </section>
+</article>
+
+  <div class="sharing grid">
+  <section class="profile grid-item grid">
+    <img class="avatar" src="/images/1.jpg" alt="avatar" />
+    <div class="grid-item">
+      <p class="title"> 波阿斯 </p>
+      <p class="subtitle">  </p>
+    <div>
+  </section>
+
+  <section class="share-btns">
+    <!-- <p> share it if you like it~ </p> -->
+    <a
+  class="twitter-share-button"
+  data-size="large"
+  data-via="DrakeLeung"
+  href="https://twitter.com/intent/tweet?text=ockquote>
+<p>设计模式的定义"
+>
+  Tweet
+</a>
+
+<script>
+  window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  js.async = true;
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+
+  </section>
+</div>
+
+
+  
+    
+<section class="article-comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+<script>
+  var disqus_shortname = 'drakeleung';
+  
+  var disqus_url = 'http://yoursite.com/2019/06/13/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+  
+</main>
+
+</body>
+</html>
