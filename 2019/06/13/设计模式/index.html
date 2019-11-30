@@ -130,6 +130,162 @@ a1.show({
     }
 })
 </code></pre>
+<h2>组合模式</h2>
+<h5>组合模式在对象间形成树形结构;</h5>
+<h5>组合模式中基本对象和组合对象被一致对待;</h5>
+<h5>无须关心对象有多少层, 调用时只需在根部进行调用;</h5>
+<pre><code>const MacroCommand = function() {
+
+    return {
+        lists: [],
+        add: function(task) {
+            this.lists.push(task)
+        },
+        excute: function() { // ①: 组合对象调用这里的 excute,
+        for (let i = 0; i &lt; this.lists.length; i++) {
+            this.lists[i].excute()
+        }
+        },
+    }
+}
+
+const command1 = MacroCommand() // 命令 1
+command1.add({
+    excute: () =&gt; console.log('煮咖啡') //
+})
+
+const command2 = MacroCommand() // 命令 2
+command2.add({
+    excute: () =&gt; console.log('打开电视')
+})
+
+command2.add({
+    excute: () =&gt; console.log('打开音响')
+})
+
+const command3 = MacroCommand() //命令 3
+command3.add({
+    excute: () =&gt; console.log('打开空调')
+})
+
+command3.add({
+    excute: () =&gt; console.log('打开电脑')
+})
+
+const macroCommand = MacroCommand()//组合对象
+macroCommand.add(command1)
+macroCommand.add(command2)
+macroCommand.add(command3)
+
+macroCommand.excute()
+
+// 煮咖啡
+// 打开电视
+// 打开音响
+// 打开空调
+// 打开电脑
+</code></pre>
+<h4>可以看出在组合模式中基本对象和组合对象被一致对待, 所以要保证基本对象(叶对象)和组合对象具有一致方法。</h4>
+<h2>观察者模式</h2>
+<h5>Observer 模式也叫观察者模式、订阅/发布模式，是由 GoF 提出的 23 种软件设计模式的一种。它也是行为模式之一，它的作用是当一个对象的状态发生变化时，能够自动通知其他关联对象，自动刷新对象状态，或者说执行对应对象的方法。</h5>
+<h5>这种设计模式可以大大降低程序模块之间的耦合度，便于更加灵活的扩展和维护。</h5>
+<h5>观察者模式包含两种角色：</h5>
+<h6>观察者（订阅者）</h6>
+<h6>被观察者（发布者）</h6>
+<pre><code>var obj = {
+    data: {
+        list: []
+    },
+};
+// defineProperty 可以观察 obj对象 的list 属性的使用
+Object.defineProperty(obj, 'list', {
+    get() {
+        console.log('获取了list 属性')
+        console.log(this.data['list'])
+        return this.data['list']
+    },
+    set(val) {
+        console.log('值被更改了')
+        this.data['list'] = val
+    }
+})
+
+// 获取了list属性，那么get 方法就会被调用
+console.log(obj.list)
+// 设置了list属性set 方法就会被调用
+obj.list = ['a', 'b']
+</code></pre>
+<h2>代理模式</h2>
+<h5>以下 demo 用代理模式来实现图片预加载, 可以看到通过代理模式巧妙地将创建图片与预加载逻辑分离, 并且在未来如果不需要预加载, 只要改成请求本体代替请求代理对象就行。</h5>
+<pre><code>const MyImage = function (parent) {
+    const imgNode = document.createElement('img')
+    parent.appendChild(imgNode)
+    // 提供一个方法 ,让外部也能修改 图片的src属性
+    this.setSrc = function(src){
+        imgNode.src = src
+    }
+}
+// 直接添加图片 ，如果图片比较大，可能加载的比较慢，导致网页上的img一开始显示不出来
+let myImage   = new MyImage(document.body)
+
+// 写个代理 提供 预加载功能
+const ProxyImage = function (myImage) {
+    // 创建image对象
+    const img = new Image()
+    img.on
+    // 监听img对象的 onload 方法
+    img.onload = function () { // http 图片加载完毕后才会执行
+    // 模拟网络很慢的情况
+        setTimeout(()=&gt;{
+            myImage.setSrc(this.src)
+        },2000)
+    }
+
+    this.setSrc =function (src) {
+        // 加载时候先不加载大图，先加载一张小图（浏览器已经下载过的）
+        myImage.setSrc('loading.gif') // 本地 loading 图片
+        img.src = src
+    }
+}
+let proxyImage = new ProxyImage(myImage)
+proxyImage.setSrc('https://www.baidu.com/img/bd_logo1.png?where=super')
+</code></pre>
+<h2>适配器模式</h2>
+<h5>适配者模式: 主要用于解决两个接口之间不匹配的问题。</h5>
+<pre><code>// 老接口
+const zhejiangCityOld = function () {
+    return [{
+        name: 'hangzhou',
+        id: 11,
+    },
+    {
+        name: 'jinhua',
+        id: 12
+    }]
+}
+
+console.log(zhejiangCityOld())
+// 新接口希望是下面形式
+// {
+//hangzhou: 11,
+//jinhua:12
+// }
+
+// 这时候就可采用适配者模式
+const adaptor = function (oldCity) {
+    console.log(oldCity)
+    const obj = {}
+    for (let city of oldCity) {
+        bj[city.name] = city.id
+    }
+    return obj
+}
+
+
+let oldData = zhejiangCityOld();
+//把老数据放在适配器中产生新数据
+console.log(adaptor(oldData))
+</code></pre>
 
   </section>
 </article>
