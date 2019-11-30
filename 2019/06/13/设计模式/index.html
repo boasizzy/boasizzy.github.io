@@ -41,13 +41,10 @@
     <blockquote>
 <p>设计模式的定义：在面向对象软件设计过程中针对特定问题的简洁而优雅的解决方案</p>
 </blockquote>
-<h2>单例模式</h2>
-<h4>单例模式的定义：保证一个类仅有一个实例，并提供一个访问它的全局访问点。实现的方法为先判断实例存在与否，如果存在则直接返回，如果不存在就创建了再返回，这就确保了一个类只有一个实例对象。</h4>
-<h5>dome1</h5>
-<pre><code>class CreateUser {
+<h2 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h2><h4 id="单例模式的定义：保证一个类仅有一个实例，并提供一个访问它的全局访问点。实现的方法为先判断实例存在与否，如果存在则直接返回，如果不存在就创建了再返回，这就确保了一个类只有一个实例对象。"><a href="#单例模式的定义：保证一个类仅有一个实例，并提供一个访问它的全局访问点。实现的方法为先判断实例存在与否，如果存在则直接返回，如果不存在就创建了再返回，这就确保了一个类只有一个实例对象。" class="headerlink" title="单例模式的定义：保证一个类仅有一个实例，并提供一个访问它的全局访问点。实现的方法为先判断实例存在与否，如果存在则直接返回，如果不存在就创建了再返回，这就确保了一个类只有一个实例对象。"></a>单例模式的定义：保证一个类仅有一个实例，并提供一个访问它的全局访问点。实现的方法为先判断实例存在与否，如果存在则直接返回，如果不存在就创建了再返回，这就确保了一个类只有一个实例对象。</h4><h5 id="dome1"><a href="#dome1" class="headerlink" title="dome1"></a>dome1</h5><pre><code>class CreateUser {
     static shareInstance(){
         if(!CreateUser.ins){
-            CreateUser.ins = new CreateUser('aa')
+            CreateUser.ins = new CreateUser(&apos;aa&apos;)
         }
         return CreateUser.ins;
     }
@@ -61,10 +58,7 @@
 }
 let c1 = CreateUser.shareInstance()
 let c2 = CreateUser.shareInstance()
-console.log(c1==c2)
-</code></pre>
-<h5>demo2</h5>
-<pre><code>let arr = [];
+console.log(c1==c2)</code></pre><h5 id="demo2"><a href="#demo2" class="headerlink" title="demo2"></a>demo2</h5><pre><code>let arr = [];
 let arr2 = []
 console.log(arr.__proto__ === arr2.__proto__)
 console.log(arr==arr2)
@@ -79,19 +73,19 @@ console.log(Math==Math)
 // Array.from()
 // Array.isArray()
 class Dog{
-	//统一接口
-	//共享实例
-	static shareInstance(){
-		if(!Dog.ins){
-			console.log('shareInstance 执行')
-			Dog.ins = new Dog()
-		}
-		return Dog.ins;
-	}
-	constructor(){
+    //统一接口
+    //共享实例
+    static shareInstance(){
+        if(!Dog.ins){
+            console.log(&apos;shareInstance 执行&apos;)
+            Dog.ins = new Dog()
+        }
+        return Dog.ins;
+    }
+    constructor(){
 
-	}
-	wang(){
+    }
+    wang(){
 
     }
 }
@@ -108,29 +102,27 @@ console.log(d3 === d4)
 console.log(d5 === d4)
 
 class AlertView{
-	static shareInstance(){
+    static shareInstance(){
 
     }
-	constructor(arg) {
+    constructor(arg) {
 
-	}
+    }
 }
 
 let a1 = AlertView.shareInstance()
 a1.show({
-	title:'你好',
-	content:'测试一下',
-	okCallback(){
-		console.log('点了确定')
-	},
+    title:&apos;你好&apos;,
+    content:&apos;测试一下&apos;,
+    okCallback(){
+        console.log(&apos;点了确定&apos;)
+    },
 
     cancleCallback(){
-		console.log('点了取消或者取消')
+        console.log(&apos;点了取消或者取消&apos;)
 
     }
-})
-</code></pre>
-
+})</code></pre>
   </section>
 </article>
 
