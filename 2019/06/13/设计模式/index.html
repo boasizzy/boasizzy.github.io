@@ -41,10 +41,13 @@
     <blockquote>
 <p>设计模式的定义：在面向对象软件设计过程中针对特定问题的简洁而优雅的解决方案</p>
 </blockquote>
-<h3 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h3><h4 id="单例模式的定义：保证一个类仅有一个实例，并提供一个访问它的全局访问点。实现的方法为先判断实例存在与否，如果存在则直接返回，如果不存在就创建了再返回，这就确保了一个类只有一个实例对象。"><a href="#单例模式的定义：保证一个类仅有一个实例，并提供一个访问它的全局访问点。实现的方法为先判断实例存在与否，如果存在则直接返回，如果不存在就创建了再返回，这就确保了一个类只有一个实例对象。" class="headerlink" title="单例模式的定义：保证一个类仅有一个实例，并提供一个访问它的全局访问点。实现的方法为先判断实例存在与否，如果存在则直接返回，如果不存在就创建了再返回，这就确保了一个类只有一个实例对象。"></a>单例模式的定义：保证一个类仅有一个实例，并提供一个访问它的全局访问点。实现的方法为先判断实例存在与否，如果存在则直接返回，如果不存在就创建了再返回，这就确保了一个类只有一个实例对象。</h4><h5 id="dome1"><a href="#dome1" class="headerlink" title="dome1"></a>dome1</h5><pre><code>class CreateUser {
+<h3>单例模式</h3>
+<h4>单例模式的定义：保证一个类仅有一个实例，并提供一个访问它的全局访问点。实现的方法为先判断实例存在与否，如果存在则直接返回，如果不存在就创建了再返回，这就确保了一个类只有一个实例对象。</h4>
+<h5>dome1</h5>
+<pre><code>class CreateUser {
     static shareInstance(){
         if(!CreateUser.ins){
-            CreateUser.ins = new CreateUser(&apos;aa&apos;)
+            CreateUser.ins = new CreateUser('aa')
         }
         return CreateUser.ins;
     }
@@ -58,7 +61,10 @@
 }
 let c1 = CreateUser.shareInstance()
 let c2 = CreateUser.shareInstance()
-console.log(c1==c2)</code></pre><h5 id="demo2"><a href="#demo2" class="headerlink" title="demo2"></a>demo2</h5><pre><code>let arr = [];
+console.log(c1==c2)
+</code></pre>
+<h5>demo2</h5>
+<pre><code>let arr = [];
 let arr2 = []
 console.log(arr.__proto__ === arr2.__proto__)
 console.log(arr==arr2)
@@ -73,19 +79,19 @@ console.log(Math==Math)
 // Array.from()
 // Array.isArray()
 class Dog{
-    //统一接口
-    //共享实例
-    static shareInstance(){
-        if(!Dog.ins){
-            console.log(&apos;shareInstance 执行&apos;)
-            Dog.ins = new Dog()
-        }
-        return Dog.ins;
-    }
-    constructor(){
+	//统一接口
+	//共享实例
+	static shareInstance(){
+		if(!Dog.ins){
+			console.log('shareInstance 执行')
+			Dog.ins = new Dog()
+		}
+		return Dog.ins;
+	}
+	constructor(){
 
-    }
-    wang(){
+	}
+	wang(){
 
     }
 }
@@ -102,27 +108,33 @@ console.log(d3 === d4)
 console.log(d5 === d4)
 
 class AlertView{
-    static shareInstance(){
+	static shareInstance(){
 
     }
-    constructor(arg) {
+	constructor(arg) {
 
-    }
+	}
 }
 
 let a1 = AlertView.shareInstance()
 a1.show({
-    title:&apos;你好&apos;,
-    content:&apos;测试一下&apos;,
-    okCallback(){
-        console.log(&apos;点了确定&apos;)
-    },
+	title:'你好',
+	content:'测试一下',
+	okCallback(){
+		console.log('点了确定')
+	},
 
     cancleCallback(){
-        console.log(&apos;点了取消或者取消&apos;)
+		console.log('点了取消或者取消')
 
     }
-})</code></pre><h3 id="组合模式"><a href="#组合模式" class="headerlink" title="组合模式"></a>组合模式</h3><h5 id="组合模式在对象间形成树形结构"><a href="#组合模式在对象间形成树形结构" class="headerlink" title="组合模式在对象间形成树形结构;"></a>组合模式在对象间形成树形结构;</h5><h5 id="组合模式中基本对象和组合对象被一致对待"><a href="#组合模式中基本对象和组合对象被一致对待" class="headerlink" title="组合模式中基本对象和组合对象被一致对待;"></a>组合模式中基本对象和组合对象被一致对待;</h5><h5 id="无须关心对象有多少层-调用时只需在根部进行调用"><a href="#无须关心对象有多少层-调用时只需在根部进行调用" class="headerlink" title="无须关心对象有多少层, 调用时只需在根部进行调用;"></a>无须关心对象有多少层, 调用时只需在根部进行调用;</h5><pre><code>const MacroCommand = function() {
+})
+</code></pre>
+<h3>组合模式</h3>
+<h5>组合模式在对象间形成树形结构;</h5>
+<h5>组合模式中基本对象和组合对象被一致对待;</h5>
+<h5>无须关心对象有多少层, 调用时只需在根部进行调用;</h5>
+<pre><code>const MacroCommand = function() {
 
     return {
         lists: [],
@@ -139,25 +151,25 @@ a1.show({
 
 const command1 = MacroCommand() // 命令 1
 command1.add({
-    excute: () =&gt; console.log(&apos;煮咖啡&apos;) //
+    excute: () =&gt; console.log('煮咖啡') //
 })
 
 const command2 = MacroCommand() // 命令 2
 command2.add({
-    excute: () =&gt; console.log(&apos;打开电视&apos;)
+    excute: () =&gt; console.log('打开电视')
 })
 
 command2.add({
-    excute: () =&gt; console.log(&apos;打开音响&apos;)
+    excute: () =&gt; console.log('打开音响')
 })
 
 const command3 = MacroCommand() //命令 3
 command3.add({
-    excute: () =&gt; console.log(&apos;打开空调&apos;)
+    excute: () =&gt; console.log('打开空调')
 })
 
 command3.add({
-    excute: () =&gt; console.log(&apos;打开电脑&apos;)
+    excute: () =&gt; console.log('打开电脑')
 })
 
 const macroCommand = MacroCommand()//组合对象
@@ -171,64 +183,83 @@ macroCommand.excute()
 // 打开电视
 // 打开音响
 // 打开空调
-// 打开电脑</code></pre><h4 id="可以看出在组合模式中基本对象和组合对象被一致对待-所以要保证基本对象-叶对象-和组合对象具有一致方法。"><a href="#可以看出在组合模式中基本对象和组合对象被一致对待-所以要保证基本对象-叶对象-和组合对象具有一致方法。" class="headerlink" title="可以看出在组合模式中基本对象和组合对象被一致对待, 所以要保证基本对象(叶对象)和组合对象具有一致方法。"></a>可以看出在组合模式中基本对象和组合对象被一致对待, 所以要保证基本对象(叶对象)和组合对象具有一致方法。</h4><h3 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h3><h5 id="Observer-模式也叫观察者模式、订阅-发布模式，是由-GoF-提出的-23-种软件设计模式的一种。它也是行为模式之一，它的作用是当一个对象的状态发生变化时，能够自动通知其他关联对象，自动刷新对象状态，或者说执行对应对象的方法。"><a href="#Observer-模式也叫观察者模式、订阅-发布模式，是由-GoF-提出的-23-种软件设计模式的一种。它也是行为模式之一，它的作用是当一个对象的状态发生变化时，能够自动通知其他关联对象，自动刷新对象状态，或者说执行对应对象的方法。" class="headerlink" title="Observer 模式也叫观察者模式、订阅/发布模式，是由 GoF 提出的 23 种软件设计模式的一种。它也是行为模式之一，它的作用是当一个对象的状态发生变化时，能够自动通知其他关联对象，自动刷新对象状态，或者说执行对应对象的方法。"></a>Observer 模式也叫观察者模式、订阅/发布模式，是由 GoF 提出的 23 种软件设计模式的一种。它也是行为模式之一，它的作用是当一个对象的状态发生变化时，能够自动通知其他关联对象，自动刷新对象状态，或者说执行对应对象的方法。</h5><h5 id="这种设计模式可以大大降低程序模块之间的耦合度，便于更加灵活的扩展和维护。"><a href="#这种设计模式可以大大降低程序模块之间的耦合度，便于更加灵活的扩展和维护。" class="headerlink" title="这种设计模式可以大大降低程序模块之间的耦合度，便于更加灵活的扩展和维护。"></a>这种设计模式可以大大降低程序模块之间的耦合度，便于更加灵活的扩展和维护。</h5><h5 id="观察者模式包含两种角色："><a href="#观察者模式包含两种角色：" class="headerlink" title="观察者模式包含两种角色："></a>观察者模式包含两种角色：</h5><h6 id="观察者（订阅者）"><a href="#观察者（订阅者）" class="headerlink" title="观察者（订阅者）"></a>观察者（订阅者）</h6><h6 id="被观察者（发布者）"><a href="#被观察者（发布者）" class="headerlink" title="被观察者（发布者）"></a>被观察者（发布者）</h6><h6 id="demo1"><a href="#demo1" class="headerlink" title="demo1"></a>demo1</h6><pre><code>var obj = {
+// 打开电脑
+</code></pre>
+<h4>可以看出在组合模式中基本对象和组合对象被一致对待, 所以要保证基本对象(叶对象)和组合对象具有一致方法。</h4>
+<h3>观察者模式</h3>
+<h5>Observer 模式也叫观察者模式、订阅/发布模式，是由 GoF 提出的 23 种软件设计模式的一种。它也是行为模式之一，它的作用是当一个对象的状态发生变化时，能够自动通知其他关联对象，自动刷新对象状态，或者说执行对应对象的方法。</h5>
+<h5>这种设计模式可以大大降低程序模块之间的耦合度，便于更加灵活的扩展和维护。</h5>
+<h5>观察者模式包含两种角色：</h5>
+<h6>观察者（订阅者）</h6>
+<h6>被观察者（发布者）</h6>
+<h6>demo1</h6>
+<pre><code>var obj = {
     data: {
         list: []
     },
 };
 // defineProperty 可以观察 obj对象 的list 属性的使用
-Object.defineProperty(obj, &apos;list&apos;, {
+Object.defineProperty(obj, 'list', {
     get() {
-        console.log(&apos;获取了list 属性&apos;)
-        console.log(this.data[&apos;list&apos;])
-        return this.data[&apos;list&apos;]
+        console.log('获取了list 属性')
+        console.log(this.data['list'])
+        return this.data['list']
     },
     set(val) {
-        console.log(&apos;值被更改了&apos;)
-        this.data[&apos;list&apos;] = val
+        console.log('值被更改了')
+        this.data['list'] = val
     }
 })
 
 // 获取了list属性，那么get 方法就会被调用
 console.log(obj.list)
 // 设置了list属性set 方法就会被调用
-obj.list = [&apos;a&apos;, &apos;b&apos;]</code></pre><h6 id="demo2-1"><a href="#demo2-1" class="headerlink" title="demo2"></a>demo2</h6><pre><code>document.addEventListener(&apos;click&apos;,function(){
-    console.log(1)
+obj.list = ['a', 'b']
+</code></pre>
+<h6>demo2</h6>
+<pre><code>document.addEventListener('click',function(){
+	console.log(1)
 })
-document.addEventListener(&apos;click&apos;,function(){
-    console.log(2)
+document.addEventListener('click',function(){
+	console.log(2)
 })
 //vue
 let obj = {
-    data:{
-        list:[]
-    }
+	data:{
+		list:[]
+	}
 }
 //defineProperty
 //给obj定义 一个属性 list
-Object.defineProperty(obj,&apos;list&apos;,{
-    get(){
-        console.log(&apos;get list&apos;)
-        return this.data.list;
-    },
-    set(val){
-        console.log(&apos;set list&apos;,val)
-        this.data.list = val
-        //修改页面的dom
-        // 虚拟dom  diff算法
-        let ul = document.querySelector(&apos;ul&apos;)
-        let arr = this.data.list.map(v=&gt;`
-            &lt;li&gt;${v}&lt;/li&gt;
-        `)
-        ul.innerHTML = arr.join(&apos;&apos;)
-    }
+Object.defineProperty(obj,'list',{
+	get(){
+		console.log('get list')
+		return this.data.list;
+	},
+	set(val){
+	    console.log('set list',val)
+		this.data.list = val
+		//修改页面的dom
+		// 虚拟dom  diff算法
+		let ul = document.querySelector('ul')
+		let arr = this.data.list.map(v=&gt;`
+		    &lt;li&gt;${v}&lt;/li&gt;
+		`)
+		ul.innerHTML = arr.join('')
+	}
 })
 
 //获取list属性值的时候 会调用 get 方法
 console.log(obj.list)
 obj.list= [2,3];
-console.log(obj.list)</code></pre><h3 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h3><h5 id="以下-demo-用代理模式来实现图片预加载-可以看到通过代理模式巧妙地将创建图片与预加载逻辑分离-并且在未来如果不需要预加载-只要改成请求本体代替请求代理对象就行。"><a href="#以下-demo-用代理模式来实现图片预加载-可以看到通过代理模式巧妙地将创建图片与预加载逻辑分离-并且在未来如果不需要预加载-只要改成请求本体代替请求代理对象就行。" class="headerlink" title="以下 demo 用代理模式来实现图片预加载, 可以看到通过代理模式巧妙地将创建图片与预加载逻辑分离, 并且在未来如果不需要预加载, 只要改成请求本体代替请求代理对象就行。"></a>以下 demo 用代理模式来实现图片预加载, 可以看到通过代理模式巧妙地将创建图片与预加载逻辑分离, 并且在未来如果不需要预加载, 只要改成请求本体代替请求代理对象就行。</h5><h5 id="js-中有事件委托-就是典型的代理模式"><a href="#js-中有事件委托-就是典型的代理模式" class="headerlink" title="js 中有事件委托 就是典型的代理模式"></a>js 中有事件委托 就是典型的代理模式</h5><h6 id="demo1-1"><a href="#demo1-1" class="headerlink" title="demo1"></a>demo1</h6><pre><code>const MyImage = function (parent) {
-    const imgNode = document.createElement(&apos;img&apos;)
+console.log(obj.list)
+</code></pre>
+<h3>代理模式</h3>
+<h5>以下 demo 用代理模式来实现图片预加载, 可以看到通过代理模式巧妙地将创建图片与预加载逻辑分离, 并且在未来如果不需要预加载, 只要改成请求本体代替请求代理对象就行。</h5>
+<h5>js 中有事件委托 就是典型的代理模式</h5>
+<h6>demo1</h6>
+<pre><code>const MyImage = function (parent) {
+    const imgNode = document.createElement('img')
     parent.appendChild(imgNode)
     // 提供一个方法 ,让外部也能修改 图片的src属性
     this.setSrc = function(src){
@@ -253,13 +284,16 @@ const ProxyImage = function (myImage) {
 
     this.setSrc =function (src) {
         // 加载时候先不加载大图，先加载一张小图（浏览器已经下载过的）
-        myImage.setSrc(&apos;loading.gif&apos;) // 本地 loading 图片
+        myImage.setSrc('loading.gif') // 本地 loading 图片
         img.src = src
     }
 }
 let proxyImage = new ProxyImage(myImage)
-proxyImage.setSrc(&apos;https://www.baidu.com/img/bd_logo1.png?where=super&apos;)</code></pre><h6 id="demo2-2"><a href="#demo2-2" class="headerlink" title="demo2"></a>demo2</h6><pre><code>const MyImage = function (parent) {
-    const imgNode = document.createElement(&apos;img&apos;)
+proxyImage.setSrc('https://www.baidu.com/img/bd_logo1.png?where=super')
+</code></pre>
+<h6>demo2</h6>
+<pre><code>const MyImage = function (parent) {
+    const imgNode = document.createElement('img')
     parent.appendChild(imgNode)
     // 提供一个方法 ,让外部也能修改 图片的src属性
     this.setSrc = function(src){
@@ -285,20 +319,25 @@ const ProxyImage = function (myImage) {
 
     this.setSrc =function (src) {
         // 加载时候先不加载大图，先加载一张小图（浏览器已经下载过的）
-        myImage.setSrc(&apos;loading.gif&apos;) // 本地 loading 图片
+        myImage.setSrc('loading.gif') // 本地 loading 图片
         img.src = src
     }
 }
 
 let proxyImage = new ProxyImage(myImage)
-proxyImage.setSrc(&apos;https://www.baidu.com/img/bd_logo1.png?where=super&apos;)</code></pre><h3 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h3><h5 id="适配者模式-主要用于解决两个接口之间不匹配的问题。"><a href="#适配者模式-主要用于解决两个接口之间不匹配的问题。" class="headerlink" title="适配者模式: 主要用于解决两个接口之间不匹配的问题。"></a>适配者模式: 主要用于解决两个接口之间不匹配的问题。</h5><h6 id="demo1-2"><a href="#demo1-2" class="headerlink" title="demo1"></a>demo1</h6><pre><code>// 老接口
+proxyImage.setSrc('https://www.baidu.com/img/bd_logo1.png?where=super')
+</code></pre>
+<h3>适配器模式</h3>
+<h5>适配者模式: 主要用于解决两个接口之间不匹配的问题。</h5>
+<h6>demo1</h6>
+<pre><code>// 老接口
 const zhejiangCityOld = function () {
     return [{
-        name: &apos;hangzhou&apos;,
+        name: 'hangzhou',
         id: 11,
     },
     {
-        name: &apos;jinhua&apos;,
+        name: 'jinhua',
         id: 12
     }]
 }
@@ -322,12 +361,15 @@ const adaptor = function (oldCity) {
 
 let oldData = zhejiangCityOld();
 //把老数据放在适配器中产生新数据
-console.log(adaptor(oldData))</code></pre><h6 id="demo2-3"><a href="#demo2-3" class="headerlink" title="demo2"></a>demo2</h6><pre><code>let arr = [{
-    name: &apos;hangzhou&apos;,
+console.log(adaptor(oldData))
+</code></pre>
+<h6>demo2</h6>
+<pre><code>let arr = [{
+    name: 'hangzhou',
     id: 11,
 },
 {
-    name: &apos;jinhua&apos;,
+    name: 'jinhua',
     id: 12
 }]
 let adaptorArrToObj=function(arr){
@@ -337,7 +379,13 @@ let adaptorArrToObj=function(arr){
     }
     return obj
 }
-console.log(adaptorArrToObj(arr));</code></pre><h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h3><h5 id="抽象工厂模式：流程-gt-先设计一个抽象类，这个类不能被实例化，只能用来派生子类，最后通过对子类的扩展实现工厂方法"><a href="#抽象工厂模式：流程-gt-先设计一个抽象类，这个类不能被实例化，只能用来派生子类，最后通过对子类的扩展实现工厂方法" class="headerlink" title="抽象工厂模式：流程=&gt; 先设计一个抽象类，这个类不能被实例化，只能用来派生子类，最后通过对子类的扩展实现工厂方法"></a>抽象工厂模式：流程=&gt; 先设计一个抽象类，这个类不能被实例化，只能用来派生子类，最后通过对子类的扩展实现工厂方法</h5><h5 id="工厂模式类似于现实生活中的工厂可以产生大量相似的商品，去做同样的事情，实现同样的效果-这时候需要使用工厂模式-js-中构造函数-都是工厂"><a href="#工厂模式类似于现实生活中的工厂可以产生大量相似的商品，去做同样的事情，实现同样的效果-这时候需要使用工厂模式-js-中构造函数-都是工厂" class="headerlink" title="工厂模式类似于现实生活中的工厂可以产生大量相似的商品，去做同样的事情，实现同样的效果;这时候需要使用工厂模式 js 中构造函数 都是工厂"></a>工厂模式类似于现实生活中的工厂可以产生大量相似的商品，去做同样的事情，实现同样的效果;这时候需要使用工厂模式 js 中构造函数 都是工厂</h5><h6 id="demo1-3"><a href="#demo1-3" class="headerlink" title="demo1"></a>demo1</h6><pre><code>//抽象类
+console.log(adaptorArrToObj(arr));
+</code></pre>
+<h3>工厂模式</h3>
+<h5>抽象工厂模式：流程=&gt; 先设计一个抽象类，这个类不能被实例化，只能用来派生子类，最后通过对子类的扩展实现工厂方法</h5>
+<h5>工厂模式类似于现实生活中的工厂可以产生大量相似的商品，去做同样的事情，实现同样的效果;这时候需要使用工厂模式 js 中构造函数 都是工厂</h5>
+<h6>demo1</h6>
+<pre><code>//抽象类
 // 抽象工厂
 class DomFactory {
     constructor() {
@@ -359,8 +407,11 @@ insert(where) {
 }
 
 
-let t = new Text(&apos;aaadfasdf&apos;)
-t.insert(document.body)</code></pre><h6 id="demo2-4"><a href="#demo2-4" class="headerlink" title="demo2"></a>demo2</h6><pre><code>// DOM 工厂
+let t = new Text('aaadfasdf')
+t.insert(document.body)
+</code></pre>
+<h6>demo2</h6>
+<pre><code>// DOM 工厂
 class DomFactory {
     constructor() {
 }
@@ -376,12 +427,14 @@ class Link2 extends DomFactory {
         this.url = url
     }
     insert(where) {
-        const link = document.createElement(&apos;a&apos;)
+        const link = document.createElement('a')
         link.href = this.url
         link.appendChild(document.createTextNode(this.url))
         where.appendChild(link)
     }
-}</code></pre>
+}
+</code></pre>
+
   </section>
 </article>
 
