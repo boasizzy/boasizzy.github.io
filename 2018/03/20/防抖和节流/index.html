@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>防抖和节流 | boasi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/app.css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
+  
+</head>
+
+<body>
+  <nav class="app-nav">
+  
+    
+      <a href="/.">home</a>
+    
+  
+    
+      <a href="/archives">archive</a>
+    
+  
+    
+      <a href="/atom.xml">rss</a>
+    
+  
+</nav>
+
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/2018/03/20/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/">防抖和节流</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">March 20 2018</p>
+  </section>
+
+  <section class="article-entry">
+    <h3>防抖和节流都是为了解决短时间内大量触发某函数而导致的性能问题。 如果触发频率过高导致响应速度跟不上触发频率，出现的延迟，假死或卡顿的现象</h3>
+<h3>什么是防抖？</h3>
+<h4>防抖是维护一个计时器，规定在 delay 时间后触发函数，但是在 delay 时间内再次触发的话，都会清除当前的 timer 然后重新设置超时调用，即重新计时。这样一来，只有最后一次操作能被触发。</h4>
+<h3>防抖执行原理：</h3>
+<h4>在事件被触发 n 秒后再执行回调函数，如果在这 n 秒内又被触发，则重新计时。</h4>
+<h3>节流执行原理：</h3>
+<h4>规定一个单位时间，在这个单位时间内，只能有一次触发事件的回调函数执行，如果在同一个单位时间内某事件被触发多次，只有一次能生效。</h4>
+<h3>防抖在什么地方应用：</h3>
+<h4>在输入框输入的时候、window 的 resize，scroll 事件 不断的调整浏览器的窗口大小，或者滚动时触发对应事件 防抖让他只触发一次</h4>
+<h4>demo1 没有防抖的代码</h4>
+<p>&lt;html&gt;
+	&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+	&lt;title&gt;没有加入防抖&lt;/title&gt;
+	&lt;script type=&quot;text/javascript&quot;&gt;
+		window.onload = function() {
+			//模拟ajax请求
+			var content = 0;
+			function ajax(content) {
+				content++;
+				console.log('ajax request ' + content)
+			}				
+			let input = document.getElementById('normal');				
+			inputNormal.addEventListener('keyup', function(e) {
+				ajax(e.target.value)
+			})
+		}
+	&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;div&gt;
+		1.没有防抖的输入：
+		&lt;input type=&quot;text&quot; name=&quot;normal&quot; id=&quot;normal&quot;&gt;
+	&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</p>
+<h4>demo2 加入防抖的输入</h4>
+<p>&lt;html&gt;</p>
+<p>&lt;head&gt;
+	&lt;meta charset=&quot;utf-8&quot; /&gt;
+	&lt;title&gt;&lt;/title&gt;
+	&lt;script type=&quot;text/javascript&quot;&gt;
+		window.onload = function () {
+			//模拟ajax请求
+			function ajax(content) {
+				console.log('ajax request ' + content)
+			}
+			function debounce(fun, delay) {
+				return function (args) {
+					//获取函数的作用域和变量
+					let that = this
+					let _args = args
+					//每次事件被触发，都会清除当前的timeer，然后重写设置超时调用
+					clearTimeout(fun.id)
+					fun.id = setTimeout(function () {
+						fun.call(that, _args)
+					}, delay)
+				}
+			}
+			let ainput = document.getElementById('debounce')
+			let aAjax = debounce(ajax, 500)
+			ainput.addEventListener('keyup', function (e) {
+				aAjax(e.target.value)
+			})
+		}
+	&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;div&gt;
+		2.加入防抖后的输入：
+		&lt;input type=&quot;text&quot; name=&quot;debounce&quot; id=&quot;debounce&quot;&gt;
+	&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</p>
+<h4>demo3 加入节流后的输入</h4>
+<p>&lt;html&gt;</p>
+<p>&lt;head&gt;
+	&lt;meta charset=&quot;utf-8&quot;&gt;
+	&lt;title&gt;&lt;/title&gt;
+	&lt;script type=&quot;text/javascript&quot;&gt;
+		window.onload = function () {
+			//模拟ajax请求
+			function ajax(content) {
+				console.log('ajax request ' + content)
+			}
+			function throttle(fun, delay) {
+				let last, deferTimer
+				return function (args) {
+					let that = this;
+					let _args = arguments;
+					let now = +new Date();
+					if (last &amp;&amp; now &lt; last + delay) {
+						clearTimeout(deferTimer);
+						deferTimer = setTimeout(function () {
+							last = now;
+							fun.apply(that, _args);
+						}, delay)
+					} else {
+						last = now;
+						fun.apply(that, _args);
+					}
+				}
+			}
+			let aAjax = throttle(ajax, 1000)
+			let ainput = document.getElementById('throttle')
+			ainput.addEventListener('keyup', function (e) {
+				aAjax(e.target.value)
+			})
+		}
+	&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;div&gt;
+		3.加入节流后的输入：
+		&lt;input type=&quot;text&quot; name=&quot;throttle&quot; id=&quot;throttle&quot;&gt;
+	&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</p>
+<h4>demo4 防抖 每次触发事件时都取消之前的延时调用方法</h4>
+<p>&lt;input type=&quot;text&quot; id=&quot;inp&quot;&gt;
+&lt;script&gt;
+var inp = document.getElementById('inp');
+inp.addEventListener('input', debounce(sayHi)); // 防抖
+// inp.addEventListener('input', sayHi); // 不防抖
+function debounce(fn) {
+let timeout = null; // 创建一个标记  利用闭包用来存放定时器的返回值
+return function () {
+clearTimeout(timeout); // 每当用户输入的时候把前一个 setTimeout clear 掉
+timeout = setTimeout(() =&gt; { // 然后又创建一个新的 setTimeout,
+//这样就能保证输入字符后的 500ms 间隔内如果还有字符输入的话，就不会执行 fn 函数
+fn.apply(this, arguments);
+//fn()
+}, 500);
+};
+}
+function sayHi(e) {
+console.log(e.target.value);
+}
+&lt;/script&gt;</p>
+<h4>demo5 用节流稀释高频率触发事件</h4>
+<p>&lt;script&gt;
+function throttle(fn) {
+let canRun = true; // 通过闭包保存一个标记
+return function () {
+if (!canRun) return; // 在函数开头判断标记是否为true，不为true则return
+canRun = false; // 立即设置为false
+setTimeout(() =&gt; { // 将外部传入的函数的执行放在setTimeout中
+fn.apply(this, arguments);
+// 最后在setTimeout执行完毕后再把标记设置为true(关键)表示可以执行下一次循环了。当定时器没有执行的时候标记永远是false，在开头被return掉
+canRun = true;
+}, 500);
+};
+}
+function sayHi(e) {
+console.log(e.target.innerWidth, e.target.innerHeight);
+}
+// window.addEventListener('resize', sayHi); //不节流
+window.addEventListener('resize', throttle(sayHi));
+&lt;/script&gt;</p>
+
+  </section>
+</article>
+
+  <div class="sharing grid">
+  <section class="profile grid-item grid">
+    <img class="avatar" src="/images/tx2.jpg" alt="avatar" />
+    <div class="grid-item">
+      <p class="title"> boasi </p>
+      <p class="subtitle">  </p>
+    <div>
+  </section>
+
+  <section class="share-btns">
+    <!-- <p> share it if you like it~ </p> -->
+    <a
+  class="twitter-share-button"
+  data-size="large"
+  data-via="DrakeLeung"
+  href="https://twitter.com/intent/tweet?text=>防抖和节流都是为了解决短时间内大量触发"
+>
+  Tweet
+</a>
+
+<script>
+  window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  js.async = true;
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+
+  </section>
+</div>
+
+
+  
+    
+<section class="article-comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+<script>
+  var disqus_shortname = 'drakeleung';
+  
+  var disqus_url = 'http://yoursite.com/2018/03/20/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+  
+</main>
+
+</body>
+</html>
