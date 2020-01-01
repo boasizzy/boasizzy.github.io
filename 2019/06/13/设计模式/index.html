@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="设计模式的定义：在面向对象软件设计过程中针对特定问题的简洁而优雅的解决方案">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-01-01T04:42:15.047Z">
+<meta property="og:updated_time" content="2020-01-01T07:32:53.499Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -43,7 +43,7 @@
       
 <div
   class="overlay"
-  style="background: #4d4d4d"
+  style="background: #fff"
 ></div>
 <div class="intrude-less">
   <header id="header" class="inner">
@@ -110,7 +110,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #fff"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -185,224 +185,17 @@
 </blockquote>
 <a id="more"></a>
 
-<h3 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h3><h4 id="单例模式的定义：保证一个类仅有一个实例，并提供一个访问它的全局访问点。实现的方法为先判断实例存在与否，如果存在则直接返回，如果不存在就创建了再返回，这就确保了一个类只有一个实例对象。"><a href="#单例模式的定义：保证一个类仅有一个实例，并提供一个访问它的全局访问点。实现的方法为先判断实例存在与否，如果存在则直接返回，如果不存在就创建了再返回，这就确保了一个类只有一个实例对象。" class="headerlink" title="单例模式的定义：保证一个类仅有一个实例，并提供一个访问它的全局访问点。实现的方法为先判断实例存在与否，如果存在则直接返回，如果不存在就创建了再返回，这就确保了一个类只有一个实例对象。"></a>单例模式的定义：保证一个类仅有一个实例，并提供一个访问它的全局访问点。实现的方法为先判断实例存在与否，如果存在则直接返回，如果不存在就创建了再返回，这就确保了一个类只有一个实例对象。</h4><h5 id="dome1"><a href="#dome1" class="headerlink" title="dome1"></a>dome1</h5><pre><code>class CreateUser {
-    static shareInstance(){
-        if(!CreateUser.ins){
-            CreateUser.ins = new CreateUser(&apos;aa&apos;)
-        }
-        return CreateUser.ins;
-    }
-    constructor(name) {
-        this.name = name;
-        this.getName();
-    }
-    getName() {
-        return this.name;
-    }
-}
-let c1 = CreateUser.shareInstance()
-let c2 = CreateUser.shareInstance()
-console.log(c1==c2)</code></pre><h5 id="demo2"><a href="#demo2" class="headerlink" title="demo2"></a>demo2</h5><pre><code>let arr = [];
-let arr2 = []
-console.log(arr.__proto__ === arr2.__proto__)
-console.log(arr==arr2)
-console.log(Math)
-console.log(Math == Math)
-Math.random()
-Math.random()
-console.log(Math==Math)
-//静态方法
-// 实例方法
-// arr.push()
-// Array.from()
-// Array.isArray()
-class Dog{
-    //统一接口
-    //共享实例
-    static shareInstance(){
-        if(!Dog.ins){
-            console.log(&apos;shareInstance 执行&apos;)
-            Dog.ins = new Dog()
-        }
-        return Dog.ins;
-    }
-    constructor(){
+<h3 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h3><h4 id="单例模式的定义：保证一个类仅有一个实例，并提供一个访问它的全局访问点。实现的方法为先判断实例存在与否，如果存在则直接返回，如果不存在就创建了再返回，这就确保了一个类只有一个实例对象。"><a href="#单例模式的定义：保证一个类仅有一个实例，并提供一个访问它的全局访问点。实现的方法为先判断实例存在与否，如果存在则直接返回，如果不存在就创建了再返回，这就确保了一个类只有一个实例对象。" class="headerlink" title="单例模式的定义：保证一个类仅有一个实例，并提供一个访问它的全局访问点。实现的方法为先判断实例存在与否，如果存在则直接返回，如果不存在就创建了再返回，这就确保了一个类只有一个实例对象。"></a>单例模式的定义：保证一个类仅有一个实例，并提供一个访问它的全局访问点。实现的方法为先判断实例存在与否，如果存在则直接返回，如果不存在就创建了再返回，这就确保了一个类只有一个实例对象。</h4><h5 id="dome1"><a href="#dome1" class="headerlink" title="dome1"></a>dome1</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CreateUser</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">static</span> shareInstance() &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">if</span> (!CreateUser.ins) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">      CreateUser.ins = <span class="keyword">new</span> CreateUser(<span class="string">'aa'</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">return</span> CreateUser.ins;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">  &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">constructor</span>(name) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">this</span>.name = name;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">this</span>.getName();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">  &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">  getName() &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">  &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> c1 = CreateUser.shareInstance();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> c2 = CreateUser.shareInstance();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(c1 == c2);</span></pre></td></tr></table></figure>
 
-    }
-    wang(){
+<h5 id="demo2"><a href="#demo2" class="headerlink" title="demo2"></a>demo2</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr2 = [];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(arr.__proto__ === arr2.__proto__);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(arr == arr2);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span> == <span class="built_in">Math</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.random();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.random();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span> == <span class="built_in">Math</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//静态方法</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实例方法</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// arr.push()</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// Array.from()</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// Array.isArray()</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//统一接口</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">//共享实例</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">static</span> shareInstance() &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">if</span> (!Dog.ins) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">      <span class="built_in">console</span>.log(<span class="string">'shareInstance 执行'</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">      Dog.ins = <span class="keyword">new</span> Dog();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">return</span> Dog.ins;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">  &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">constructor</span>() &#123;&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">  wang() &#123;&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> d1 = <span class="keyword">new</span> Dog();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> d2 = <span class="keyword">new</span> Dog();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(d1 == d2);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//对外提供统一的实例</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> d3 = Dog.shareInstance();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> d4 = Dog.shareInstance();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> d5 = Dog.shareInstance();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(d3 === d4);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">38</span></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(d5 === d4);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">39</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">40</span></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AlertView</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">41</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">static</span> shareInstance() &#123;&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">42</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">constructor</span>(arg) &#123;&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">43</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">44</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">45</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a1 = AlertView.shareInstance();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">46</span></pre></td><td class="code"><pre><span class="line">a1.show(&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">47</span></pre></td><td class="code"><pre><span class="line">  title: <span class="string">'你好'</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">48</span></pre></td><td class="code"><pre><span class="line">  content: <span class="string">'测试一下'</span>,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">49</span></pre></td><td class="code"><pre><span class="line">  okCallback() &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">50</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">console</span>.log(<span class="string">'点了确定'</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">51</span></pre></td><td class="code"><pre><span class="line">  &#125;,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">52</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">53</span></pre></td><td class="code"><pre><span class="line">  cancleCallback() &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">54</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">console</span>.log(<span class="string">'点了取消或者取消'</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">55</span></pre></td><td class="code"><pre><span class="line">  &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">56</span></pre></td><td class="code"><pre><span class="line">&#125;);</span></pre></td></tr></table></figure>
 
-    }
-}
+<h3 id="组合模式"><a href="#组合模式" class="headerlink" title="组合模式"></a>组合模式</h3><h5 id="组合模式在对象间形成树形结构"><a href="#组合模式在对象间形成树形结构" class="headerlink" title="组合模式在对象间形成树形结构;"></a>组合模式在对象间形成树形结构;</h5><h5 id="组合模式中基本对象和组合对象被一致对待"><a href="#组合模式中基本对象和组合对象被一致对待" class="headerlink" title="组合模式中基本对象和组合对象被一致对待;"></a>组合模式中基本对象和组合对象被一致对待;</h5><h5 id="无须关心对象有多少层-调用时只需在根部进行调用"><a href="#无须关心对象有多少层-调用时只需在根部进行调用" class="headerlink" title="无须关心对象有多少层, 调用时只需在根部进行调用;"></a>无须关心对象有多少层, 调用时只需在根部进行调用;</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> MacroCommand = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">return</span> &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    lists: [],</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    add: <span class="function"><span class="keyword">function</span>(<span class="params">task</span>) </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">      <span class="keyword">this</span>.lists.push(task);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    &#125;,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    excute: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">      <span class="comment">// ①: 组合对象调用这里的 excute,</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">      <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.lists.length; i++) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">this</span>.lists[i].excute();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">      &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">  &#125;;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">&#125;;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> command1 = MacroCommand(); <span class="comment">// 命令 1</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">command1.add(&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">  excute: <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'煮咖啡'</span>) <span class="comment">//</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">&#125;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> command2 = MacroCommand(); <span class="comment">// 命令 2</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">command2.add(&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">  excute: <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'打开电视'</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">&#125;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">command2.add(&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">  excute: <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'打开音响'</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">&#125;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> command3 = MacroCommand(); <span class="comment">//命令 3</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">command3.add(&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">  excute: <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'打开空调'</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line">&#125;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line">command3.add(&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><span class="line">  excute: <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'打开电脑'</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><span class="line">&#125;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">38</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">39</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> macroCommand = MacroCommand(); <span class="comment">//组合对象</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">40</span></pre></td><td class="code"><pre><span class="line">macroCommand.add(command1);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">41</span></pre></td><td class="code"><pre><span class="line">macroCommand.add(command2);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">42</span></pre></td><td class="code"><pre><span class="line">macroCommand.add(command3);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">43</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">44</span></pre></td><td class="code"><pre><span class="line">macroCommand.excute();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">45</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">46</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// 煮咖啡</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">47</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// 打开电视</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">48</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// 打开音响</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">49</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// 打开空调</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">50</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// 打开电脑</span></span></pre></td></tr></table></figure>
 
-let d1 = new Dog()
-let d2 = new Dog()
-console.log(d1==d2)
+<h4 id="可以看出在组合模式中基本对象和组合对象被一致对待-所以要保证基本对象-叶对象-和组合对象具有一致方法。"><a href="#可以看出在组合模式中基本对象和组合对象被一致对待-所以要保证基本对象-叶对象-和组合对象具有一致方法。" class="headerlink" title="可以看出在组合模式中基本对象和组合对象被一致对待, 所以要保证基本对象(叶对象)和组合对象具有一致方法。"></a>可以看出在组合模式中基本对象和组合对象被一致对待, 所以要保证基本对象(叶对象)和组合对象具有一致方法。</h4><h3 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h3><h5 id="Observer-模式也叫观察者模式、订阅-发布模式，是由-GoF-提出的-23-种软件设计模式的一种。它也是行为模式之一，它的作用是当一个对象的状态发生变化时，能够自动通知其他关联对象，自动刷新对象状态，或者说执行对应对象的方法。"><a href="#Observer-模式也叫观察者模式、订阅-发布模式，是由-GoF-提出的-23-种软件设计模式的一种。它也是行为模式之一，它的作用是当一个对象的状态发生变化时，能够自动通知其他关联对象，自动刷新对象状态，或者说执行对应对象的方法。" class="headerlink" title="Observer 模式也叫观察者模式、订阅/发布模式，是由 GoF 提出的 23 种软件设计模式的一种。它也是行为模式之一，它的作用是当一个对象的状态发生变化时，能够自动通知其他关联对象，自动刷新对象状态，或者说执行对应对象的方法。"></a>Observer 模式也叫观察者模式、订阅/发布模式，是由 GoF 提出的 23 种软件设计模式的一种。它也是行为模式之一，它的作用是当一个对象的状态发生变化时，能够自动通知其他关联对象，自动刷新对象状态，或者说执行对应对象的方法。</h5><h5 id="这种设计模式可以大大降低程序模块之间的耦合度，便于更加灵活的扩展和维护。"><a href="#这种设计模式可以大大降低程序模块之间的耦合度，便于更加灵活的扩展和维护。" class="headerlink" title="这种设计模式可以大大降低程序模块之间的耦合度，便于更加灵活的扩展和维护。"></a>这种设计模式可以大大降低程序模块之间的耦合度，便于更加灵活的扩展和维护。</h5><h5 id="观察者模式包含两种角色："><a href="#观察者模式包含两种角色：" class="headerlink" title="观察者模式包含两种角色："></a>观察者模式包含两种角色：</h5><h6 id="观察者（订阅者）"><a href="#观察者（订阅者）" class="headerlink" title="观察者（订阅者）"></a>观察者（订阅者）</h6><h6 id="被观察者（发布者）"><a href="#被观察者（发布者）" class="headerlink" title="被观察者（发布者）"></a>被观察者（发布者）</h6><h6 id="demo1"><a href="#demo1" class="headerlink" title="demo1"></a>demo1</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">var</span> obj = &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">        data: &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">            list: []</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">        &#125;,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    &#125;;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">// defineProperty 可以观察 obj对象 的list 属性的使用</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">Object</span>.defineProperty(obj, <span class="string">'list'</span>, &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">get</span>() &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">            <span class="built_in">console</span>.log(<span class="string">'获取了list 属性'</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.data[<span class="string">'list'</span>])</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.data[<span class="string">'list'</span>]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">        &#125;,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">set</span>(val) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">            <span class="built_in">console</span>.log(<span class="string">'值被更改了'</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">this</span>.data[<span class="string">'list'</span>] = val</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">    &#125;)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">// 获取了list属性，那么get 方法就会被调用</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">console</span>.log(obj.list)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">// 设置了list属性set 方法就会被调用</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">    obj.list = [<span class="string">'a'</span>, <span class="string">'b'</span>]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">###### demo2</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">document</span>.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">    	<span class="built_in">console</span>.log(<span class="number">1</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">    &#125;)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">document</span>.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">    	<span class="built_in">console</span>.log(<span class="number">2</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">    &#125;)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">//vue</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">let</span> obj = &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">34</span></pre></td><td class="code"><pre><span class="line">    	data:&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">35</span></pre></td><td class="code"><pre><span class="line">    		list:[]</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">36</span></pre></td><td class="code"><pre><span class="line">    	&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">37</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">38</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">//defineProperty</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">39</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">//给obj定义 一个属性 list</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">40</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">Object</span>.defineProperty(obj,<span class="string">'list'</span>,&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">41</span></pre></td><td class="code"><pre><span class="line">    	<span class="keyword">get</span>()&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">42</span></pre></td><td class="code"><pre><span class="line">    		<span class="built_in">console</span>.log(<span class="string">'get list'</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">43</span></pre></td><td class="code"><pre><span class="line">    		<span class="keyword">return</span> <span class="keyword">this</span>.data.list;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">44</span></pre></td><td class="code"><pre><span class="line">    	&#125;,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">45</span></pre></td><td class="code"><pre><span class="line">    	<span class="keyword">set</span>(val)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">46</span></pre></td><td class="code"><pre><span class="line">    	    <span class="built_in">console</span>.log(<span class="string">'set list'</span>,val)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">47</span></pre></td><td class="code"><pre><span class="line">    		<span class="keyword">this</span>.data.list = val</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">48</span></pre></td><td class="code"><pre><span class="line">    		<span class="comment">//修改页面的dom</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">49</span></pre></td><td class="code"><pre><span class="line">    		<span class="comment">// 虚拟dom  diff算法</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">50</span></pre></td><td class="code"><pre><span class="line">    		<span class="keyword">let</span> ul = <span class="built_in">document</span>.querySelector(<span class="string">'ul'</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">51</span></pre></td><td class="code"><pre><span class="line">    		<span class="keyword">let</span> arr = <span class="keyword">this</span>.data.list.map(<span class="function"><span class="params">v</span>=&gt;</span><span class="string">`</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">52</span></pre></td><td class="code"><pre><span class="line"><span class="string">    		    &lt;li&gt;<span class="subst">$&#123;v&#125;</span>&lt;/li&gt;</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">53</span></pre></td><td class="code"><pre><span class="line"><span class="string">    		`</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">54</span></pre></td><td class="code"><pre><span class="line">    		ul.innerHTML = arr.join(<span class="string">''</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">55</span></pre></td><td class="code"><pre><span class="line">    	&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">56</span></pre></td><td class="code"><pre><span class="line">    &#125;)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">57</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">58</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">//获取list属性值的时候 会调用 get 方法</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">59</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">console</span>.log(obj.list)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">60</span></pre></td><td class="code"><pre><span class="line">    obj.list= [<span class="number">2</span>,<span class="number">3</span>];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">61</span></pre></td><td class="code"><pre><span class="line">    <span class="built_in">console</span>.log(obj.list)</span></pre></td></tr></table></figure>
 
-//对外提供统一的实例
-let d3 = Dog.shareInstance()
-let d4 = Dog.shareInstance()
-let d5 = Dog.shareInstance()
-console.log(d3 === d4)
-console.log(d5 === d4)
+<h3 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h3><h5 id="以下-demo-用代理模式来实现图片预加载-可以看到通过代理模式巧妙地将创建图片与预加载逻辑分离-并且在未来如果不需要预加载-只要改成请求本体代替请求代理对象就行。"><a href="#以下-demo-用代理模式来实现图片预加载-可以看到通过代理模式巧妙地将创建图片与预加载逻辑分离-并且在未来如果不需要预加载-只要改成请求本体代替请求代理对象就行。" class="headerlink" title="以下 demo 用代理模式来实现图片预加载, 可以看到通过代理模式巧妙地将创建图片与预加载逻辑分离, 并且在未来如果不需要预加载, 只要改成请求本体代替请求代理对象就行。"></a>以下 demo 用代理模式来实现图片预加载, 可以看到通过代理模式巧妙地将创建图片与预加载逻辑分离, 并且在未来如果不需要预加载, 只要改成请求本体代替请求代理对象就行。</h5><h5 id="js-中有事件委托-就是典型的代理模式"><a href="#js-中有事件委托-就是典型的代理模式" class="headerlink" title="js 中有事件委托 就是典型的代理模式"></a>js 中有事件委托 就是典型的代理模式</h5><h6 id="demo1-1"><a href="#demo1-1" class="headerlink" title="demo1"></a>demo1</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> MyImage = <span class="function"><span class="keyword">function</span>(<span class="params">parent</span>) </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">const</span> imgNode = <span class="built_in">document</span>.createElement(<span class="string">'img'</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  parent.appendChild(imgNode);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">// 提供一个方法 ,让外部也能修改 图片的src属性</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.setSrc = <span class="function"><span class="keyword">function</span>(<span class="params">src</span>) </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    imgNode.src = src;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">  &#125;;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">&#125;;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// 直接添加图片 ，如果图片比较大，可能加载的比较慢，导致网页上的img一开始显示不出来</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> myImage = <span class="keyword">new</span> MyImage(<span class="built_in">document</span>.body);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"><span class="comment">// 写个代理 提供 预加载功能</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ProxyImage = <span class="function"><span class="keyword">function</span>(<span class="params">myImage</span>) </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">// 创建image对象</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">const</span> img = <span class="keyword">new</span> Image();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">  img.on;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">  <span class="comment">// 监听img对象的 onload 方法</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">  img.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">// http 图片加载完毕后才会执行</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">// 模拟网络很慢的情况</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">      myImage.setSrc(<span class="keyword">this</span>.src);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">23</span></pre></td><td class="code"><pre><span class="line">    &#125;, <span class="number">2000</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">24</span></pre></td><td class="code"><pre><span class="line">  &#125;;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">25</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">26</span></pre></td><td class="code"><pre><span class="line">  <span class="keyword">this</span>.setSrc = <span class="function"><span class="keyword">function</span>(<span class="params">src</span>) </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">27</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">// 加载时候先不加载大图，先加载一张小图（浏览器已经下载过的）</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">28</span></pre></td><td class="code"><pre><span class="line">    myImage.setSrc(<span class="string">'loading.gif'</span>); <span class="comment">// 本地 loading 图片</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">29</span></pre></td><td class="code"><pre><span class="line">    img.src = src;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">30</span></pre></td><td class="code"><pre><span class="line">  &#125;;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">31</span></pre></td><td class="code"><pre><span class="line">&#125;;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">32</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> proxyImage = <span class="keyword">new</span> ProxyImage(myImage);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">33</span></pre></td><td class="code"><pre><span class="line">proxyImage.setSrc(<span class="string">'https://www.baidu.com/img/bd_logo1.png?where=super'</span>);</span></pre></td></tr></table></figure>
 
-class AlertView{
-    static shareInstance(){
-
-    }
-    constructor(arg) {
-
-    }
-}
-
-let a1 = AlertView.shareInstance()
-a1.show({
-    title:&apos;你好&apos;,
-    content:&apos;测试一下&apos;,
-    okCallback(){
-        console.log(&apos;点了确定&apos;)
-    },
-
-    cancleCallback(){
-        console.log(&apos;点了取消或者取消&apos;)
-
-    }
-})</code></pre><h3 id="组合模式"><a href="#组合模式" class="headerlink" title="组合模式"></a>组合模式</h3><h5 id="组合模式在对象间形成树形结构"><a href="#组合模式在对象间形成树形结构" class="headerlink" title="组合模式在对象间形成树形结构;"></a>组合模式在对象间形成树形结构;</h5><h5 id="组合模式中基本对象和组合对象被一致对待"><a href="#组合模式中基本对象和组合对象被一致对待" class="headerlink" title="组合模式中基本对象和组合对象被一致对待;"></a>组合模式中基本对象和组合对象被一致对待;</h5><h5 id="无须关心对象有多少层-调用时只需在根部进行调用"><a href="#无须关心对象有多少层-调用时只需在根部进行调用" class="headerlink" title="无须关心对象有多少层, 调用时只需在根部进行调用;"></a>无须关心对象有多少层, 调用时只需在根部进行调用;</h5><pre><code>const MacroCommand = function() {
-
-    return {
-        lists: [],
-        add: function(task) {
-            this.lists.push(task)
-        },
-        excute: function() { // ①: 组合对象调用这里的 excute,
-        for (let i = 0; i &lt; this.lists.length; i++) {
-            this.lists[i].excute()
-        }
-        },
-    }
-}
-
-const command1 = MacroCommand() // 命令 1
-command1.add({
-    excute: () =&gt; console.log(&apos;煮咖啡&apos;) //
-})
-
-const command2 = MacroCommand() // 命令 2
-command2.add({
-    excute: () =&gt; console.log(&apos;打开电视&apos;)
-})
-
-command2.add({
-    excute: () =&gt; console.log(&apos;打开音响&apos;)
-})
-
-const command3 = MacroCommand() //命令 3
-command3.add({
-    excute: () =&gt; console.log(&apos;打开空调&apos;)
-})
-
-command3.add({
-    excute: () =&gt; console.log(&apos;打开电脑&apos;)
-})
-
-const macroCommand = MacroCommand()//组合对象
-macroCommand.add(command1)
-macroCommand.add(command2)
-macroCommand.add(command3)
-
-macroCommand.excute()
-
-// 煮咖啡
-// 打开电视
-// 打开音响
-// 打开空调
-// 打开电脑</code></pre><h4 id="可以看出在组合模式中基本对象和组合对象被一致对待-所以要保证基本对象-叶对象-和组合对象具有一致方法。"><a href="#可以看出在组合模式中基本对象和组合对象被一致对待-所以要保证基本对象-叶对象-和组合对象具有一致方法。" class="headerlink" title="可以看出在组合模式中基本对象和组合对象被一致对待, 所以要保证基本对象(叶对象)和组合对象具有一致方法。"></a>可以看出在组合模式中基本对象和组合对象被一致对待, 所以要保证基本对象(叶对象)和组合对象具有一致方法。</h4><h3 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h3><h5 id="Observer-模式也叫观察者模式、订阅-发布模式，是由-GoF-提出的-23-种软件设计模式的一种。它也是行为模式之一，它的作用是当一个对象的状态发生变化时，能够自动通知其他关联对象，自动刷新对象状态，或者说执行对应对象的方法。"><a href="#Observer-模式也叫观察者模式、订阅-发布模式，是由-GoF-提出的-23-种软件设计模式的一种。它也是行为模式之一，它的作用是当一个对象的状态发生变化时，能够自动通知其他关联对象，自动刷新对象状态，或者说执行对应对象的方法。" class="headerlink" title="Observer 模式也叫观察者模式、订阅/发布模式，是由 GoF 提出的 23 种软件设计模式的一种。它也是行为模式之一，它的作用是当一个对象的状态发生变化时，能够自动通知其他关联对象，自动刷新对象状态，或者说执行对应对象的方法。"></a>Observer 模式也叫观察者模式、订阅/发布模式，是由 GoF 提出的 23 种软件设计模式的一种。它也是行为模式之一，它的作用是当一个对象的状态发生变化时，能够自动通知其他关联对象，自动刷新对象状态，或者说执行对应对象的方法。</h5><h5 id="这种设计模式可以大大降低程序模块之间的耦合度，便于更加灵活的扩展和维护。"><a href="#这种设计模式可以大大降低程序模块之间的耦合度，便于更加灵活的扩展和维护。" class="headerlink" title="这种设计模式可以大大降低程序模块之间的耦合度，便于更加灵活的扩展和维护。"></a>这种设计模式可以大大降低程序模块之间的耦合度，便于更加灵活的扩展和维护。</h5><h5 id="观察者模式包含两种角色："><a href="#观察者模式包含两种角色：" class="headerlink" title="观察者模式包含两种角色："></a>观察者模式包含两种角色：</h5><h6 id="观察者（订阅者）"><a href="#观察者（订阅者）" class="headerlink" title="观察者（订阅者）"></a>观察者（订阅者）</h6><h6 id="被观察者（发布者）"><a href="#被观察者（发布者）" class="headerlink" title="被观察者（发布者）"></a>被观察者（发布者）</h6><h6 id="demo1"><a href="#demo1" class="headerlink" title="demo1"></a>demo1</h6><pre><code>var obj = {
-    data: {
-        list: []
-    },
-};
-// defineProperty 可以观察 obj对象 的list 属性的使用
-Object.defineProperty(obj, &apos;list&apos;, {
-    get() {
-        console.log(&apos;获取了list 属性&apos;)
-        console.log(this.data[&apos;list&apos;])
-        return this.data[&apos;list&apos;]
-    },
-    set(val) {
-        console.log(&apos;值被更改了&apos;)
-        this.data[&apos;list&apos;] = val
-    }
-})
-
-// 获取了list属性，那么get 方法就会被调用
-console.log(obj.list)
-// 设置了list属性set 方法就会被调用
-obj.list = [&apos;a&apos;, &apos;b&apos;]</code></pre><h6 id="demo2-1"><a href="#demo2-1" class="headerlink" title="demo2"></a>demo2</h6><pre><code>document.addEventListener(&apos;click&apos;,function(){
-    console.log(1)
-})
-document.addEventListener(&apos;click&apos;,function(){
-    console.log(2)
-})
-//vue
-let obj = {
-    data:{
-        list:[]
-    }
-}
-//defineProperty
-//给obj定义 一个属性 list
-Object.defineProperty(obj,&apos;list&apos;,{
-    get(){
-        console.log(&apos;get list&apos;)
-        return this.data.list;
-    },
-    set(val){
-        console.log(&apos;set list&apos;,val)
-        this.data.list = val
-        //修改页面的dom
-        // 虚拟dom  diff算法
-        let ul = document.querySelector(&apos;ul&apos;)
-        let arr = this.data.list.map(v=&gt;`
-            &lt;li&gt;${v}&lt;/li&gt;
-        `)
-        ul.innerHTML = arr.join(&apos;&apos;)
-    }
-})
-
-//获取list属性值的时候 会调用 get 方法
-console.log(obj.list)
-obj.list= [2,3];
-console.log(obj.list)</code></pre><h3 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h3><h5 id="以下-demo-用代理模式来实现图片预加载-可以看到通过代理模式巧妙地将创建图片与预加载逻辑分离-并且在未来如果不需要预加载-只要改成请求本体代替请求代理对象就行。"><a href="#以下-demo-用代理模式来实现图片预加载-可以看到通过代理模式巧妙地将创建图片与预加载逻辑分离-并且在未来如果不需要预加载-只要改成请求本体代替请求代理对象就行。" class="headerlink" title="以下 demo 用代理模式来实现图片预加载, 可以看到通过代理模式巧妙地将创建图片与预加载逻辑分离, 并且在未来如果不需要预加载, 只要改成请求本体代替请求代理对象就行。"></a>以下 demo 用代理模式来实现图片预加载, 可以看到通过代理模式巧妙地将创建图片与预加载逻辑分离, 并且在未来如果不需要预加载, 只要改成请求本体代替请求代理对象就行。</h5><h5 id="js-中有事件委托-就是典型的代理模式"><a href="#js-中有事件委托-就是典型的代理模式" class="headerlink" title="js 中有事件委托 就是典型的代理模式"></a>js 中有事件委托 就是典型的代理模式</h5><h6 id="demo1-1"><a href="#demo1-1" class="headerlink" title="demo1"></a>demo1</h6><pre><code>const MyImage = function (parent) {
-    const imgNode = document.createElement(&apos;img&apos;)
-    parent.appendChild(imgNode)
-    // 提供一个方法 ,让外部也能修改 图片的src属性
-    this.setSrc = function(src){
-        imgNode.src = src
-    }
-}
-// 直接添加图片 ，如果图片比较大，可能加载的比较慢，导致网页上的img一开始显示不出来
-let myImage   = new MyImage(document.body)
-
-// 写个代理 提供 预加载功能
-const ProxyImage = function (myImage) {
-    // 创建image对象
-    const img = new Image()
-    img.on
-    // 监听img对象的 onload 方法
-    img.onload = function () { // http 图片加载完毕后才会执行
-    // 模拟网络很慢的情况
-        setTimeout(()=&gt;{
-            myImage.setSrc(this.src)
-        },2000)
-    }
-
-    this.setSrc =function (src) {
-        // 加载时候先不加载大图，先加载一张小图（浏览器已经下载过的）
-        myImage.setSrc(&apos;loading.gif&apos;) // 本地 loading 图片
-        img.src = src
-    }
-}
-let proxyImage = new ProxyImage(myImage)
-proxyImage.setSrc(&apos;https://www.baidu.com/img/bd_logo1.png?where=super&apos;)</code></pre><h6 id="demo2-2"><a href="#demo2-2" class="headerlink" title="demo2"></a>demo2</h6><pre><code>const MyImage = function (parent) {
+<h6 id="demo2-1"><a href="#demo2-1" class="headerlink" title="demo2"></a>demo2</h6><pre><code>const MyImage = function (parent) {
     const imgNode = document.createElement(&apos;img&apos;)
     parent.appendChild(imgNode)
     // 提供一个方法 ,让外部也能修改 图片的src属性
@@ -466,7 +259,7 @@ const adaptor = function (oldCity) {
 
 let oldData = zhejiangCityOld();
 //把老数据放在适配器中产生新数据
-console.log(adaptor(oldData))</code></pre><h6 id="demo2-3"><a href="#demo2-3" class="headerlink" title="demo2"></a>demo2</h6><pre><code>let arr = [{
+console.log(adaptor(oldData))</code></pre><h6 id="demo2-2"><a href="#demo2-2" class="headerlink" title="demo2"></a>demo2</h6><pre><code>let arr = [{
     name: &apos;hangzhou&apos;,
     id: 11,
 },
@@ -504,7 +297,7 @@ insert(where) {
 
 
 let t = new Text(&apos;aaadfasdf&apos;)
-t.insert(document.body)</code></pre><h6 id="demo2-4"><a href="#demo2-4" class="headerlink" title="demo2"></a>demo2</h6><pre><code>// DOM 工厂
+t.insert(document.body)</code></pre><h6 id="demo2-3"><a href="#demo2-3" class="headerlink" title="demo2"></a>demo2</h6><pre><code>// DOM 工厂
 class DomFactory {
     constructor() {
 }
