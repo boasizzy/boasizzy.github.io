@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>回流和重绘 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="为什么会有回流和重绘在页面加载的时候，浏览器会把 HTML 代码解析成 DOM 树，在这个 DOM 树里面包含了所有的文本节点、元素节点和属性节点。浏览器会从根结点遍历每一个可见节点（1），，找到每个可见节点在 CSSOM 树中找到对应的规则并应用。再根据每个可见节点及其对应样式，组合成渲染树。">
+  <meta name="description" content="为什么会有回流和重绘 在页面加载的时候，浏览器会把 HTML 代码解析成 DOM 树，在这个 DOM 树里面包含了所有的文本节点、元素节点和属性节点。浏览器会从根结点遍历每一个可见节点（1），，找到每个可见节点在 CSSOM 树中找到对应的规则并应用。再根据每个可见节点及其对应样式，组合成渲染树。 &amp;lt;!-- more --&amp;gt; （1）可见的节点为：显示在渲染树上的节点（渲染书只包含显示节">
 <meta property="og:type" content="article">
 <meta property="og:title" content="回流和重绘">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2018&#x2F;10&#x2F;04&#x2F;%E5%9B%9E%E6%B5%81%E5%92%8C%E9%87%8D%E7%BB%98&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="为什么会有回流和重绘在页面加载的时候，浏览器会把 HTML 代码解析成 DOM 树，在这个 DOM 树里面包含了所有的文本节点、元素节点和属性节点。浏览器会从根结点遍历每一个可见节点（1），，找到每个可见节点在 CSSOM 树中找到对应的规则并应用。再根据每个可见节点及其对应样式，组合成渲染树。">
+<meta property="og:description" content="为什么会有回流和重绘 在页面加载的时候，浏览器会把 HTML 代码解析成 DOM 树，在这个 DOM 树里面包含了所有的文本节点、元素节点和属性节点。浏览器会从根结点遍历每一个可见节点（1），，找到每个可见节点在 CSSOM 树中找到对应的规则并应用。再根据每个可见节点及其对应样式，组合成渲染树。 &amp;lt;!-- more --&amp;gt; （1）可见的节点为：显示在渲染树上的节点（渲染书只包含显示节">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2020-01-01T07:27:56.551Z">
 <meta name="twitter:card" content="summary">
@@ -180,11 +180,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="为什么会有回流和重绘"><a href="#为什么会有回流和重绘" class="headerlink" title="为什么会有回流和重绘"></a>为什么会有回流和重绘</h3><h4 id="在页面加载的时候，浏览器会把-HTML-代码解析成-DOM-树，在这个-DOM-树里面包含了所有的文本节点、元素节点和属性节点。浏览器会从根结点遍历每一个可见节点（1），，找到每个可见节点在-CSSOM-树中找到对应的规则并应用。再根据每个可见节点及其对应样式，组合成渲染树。"><a href="#在页面加载的时候，浏览器会把-HTML-代码解析成-DOM-树，在这个-DOM-树里面包含了所有的文本节点、元素节点和属性节点。浏览器会从根结点遍历每一个可见节点（1），，找到每个可见节点在-CSSOM-树中找到对应的规则并应用。再根据每个可见节点及其对应样式，组合成渲染树。" class="headerlink" title="在页面加载的时候，浏览器会把 HTML 代码解析成 DOM 树，在这个 DOM 树里面包含了所有的文本节点、元素节点和属性节点。浏览器会从根结点遍历每一个可见节点（1），，找到每个可见节点在 CSSOM 树中找到对应的规则并应用。再根据每个可见节点及其对应样式，组合成渲染树。"></a>在页面加载的时候，浏览器会把 HTML 代码解析成 DOM 树，在这个 DOM 树里面包含了所有的文本节点、元素节点和属性节点。浏览器会从根结点遍历每一个可见节点（1），，找到每个可见节点在 CSSOM 树中找到对应的规则并应用。再根据每个可见节点及其对应样式，组合成渲染树。</h4><a id="more"></a>
-
-<h5 id="（1）可见的节点为：显示在渲染树上的节点（渲染书只包含显示节点）。不可见节点为-script、meta、link，或者没有通过-css-进行隐藏的节点"><a href="#（1）可见的节点为：显示在渲染树上的节点（渲染书只包含显示节点）。不可见节点为-script、meta、link，或者没有通过-css-进行隐藏的节点" class="headerlink" title="（1）可见的节点为：显示在渲染树上的节点（渲染书只包含显示节点）。不可见节点为 script、meta、link，或者没有通过 css 进行隐藏的节点"></a>（1）可见的节点为：显示在渲染树上的节点（渲染书只包含显示节点）。不可见节点为 script、meta、link，或者没有通过 css 进行隐藏的节点</h5><h3 id="什么是回流"><a href="#什么是回流" class="headerlink" title="什么是回流"></a>什么是回流</h3><h5 id="我们通过构造渲染树，我们将可见-DOM-节点以及它对应的样式结合起来可是我们还要计算它们的确切位置和大小，这个计算的阶段就是回流。"><a href="#我们通过构造渲染树，我们将可见-DOM-节点以及它对应的样式结合起来可是我们还要计算它们的确切位置和大小，这个计算的阶段就是回流。" class="headerlink" title="我们通过构造渲染树，我们将可见 DOM 节点以及它对应的样式结合起来可是我们还要计算它们的确切位置和大小，这个计算的阶段就是回流。"></a>我们通过构造渲染树，我们将可见 DOM 节点以及它对应的样式结合起来可是我们还要计算它们的确切位置和大小，这个计算的阶段就是回流。</h5><h5 id="为了弄清每个-DOM-对象的大小和位置，浏览器从渲染树的根节点开始遍历，我们可以以下面这个-demo-来演示："><a href="#为了弄清每个-DOM-对象的大小和位置，浏览器从渲染树的根节点开始遍历，我们可以以下面这个-demo-来演示：" class="headerlink" title="为了弄清每个 DOM 对象的大小和位置，浏览器从渲染树的根节点开始遍历，我们可以以下面这个 demo 来演示："></a>为了弄清每个 DOM 对象的大小和位置，浏览器从渲染树的根节点开始遍历，我们可以以下面这个 demo 来演示：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;div style=<span class="string">"width: 50%"</span>&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  &lt;div style=<span class="string">"width: 50%"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">&lt;<span class="regexp">/div&gt;</span></span></pre></td></tr></table></figure>
-
-<h5 id="我们可以看到，第一个-div-将节点的显示尺寸设置为视口宽度的-50-，第二个-div-将其尺寸设置为父节点的-50-。而在回流这个阶段，我们就需要根据视口具体的宽度，将其转为实际的像素值。"><a href="#我们可以看到，第一个-div-将节点的显示尺寸设置为视口宽度的-50-，第二个-div-将其尺寸设置为父节点的-50-。而在回流这个阶段，我们就需要根据视口具体的宽度，将其转为实际的像素值。" class="headerlink" title="我们可以看到，第一个 div 将节点的显示尺寸设置为视口宽度的 50%，第二个 div 将其尺寸设置为父节点的 50%。而在回流这个阶段，我们就需要根据视口具体的宽度，将其转为实际的像素值。"></a>我们可以看到，第一个 div 将节点的显示尺寸设置为视口宽度的 50%，第二个 div 将其尺寸设置为父节点的 50%。而在回流这个阶段，我们就需要根据视口具体的宽度，将其转为实际的像素值。</h5><h3 id="什么是重绘"><a href="#什么是重绘" class="headerlink" title="什么是重绘"></a>什么是重绘</h3><h5 id="最终，我们通过构造渲染树和回流阶段，我们知道了哪些节点是可见的，以及可见节点的样式和具体的信息-位置、大小-，那么我们就可以将渲染树的每个节点都转换为屏幕上的实际像素，这个阶段就叫做重绘节点。"><a href="#最终，我们通过构造渲染树和回流阶段，我们知道了哪些节点是可见的，以及可见节点的样式和具体的信息-位置、大小-，那么我们就可以将渲染树的每个节点都转换为屏幕上的实际像素，这个阶段就叫做重绘节点。" class="headerlink" title="最终，我们通过构造渲染树和回流阶段，我们知道了哪些节点是可见的，以及可见节点的样式和具体的信息(位置、大小)，那么我们就可以将渲染树的每个节点都转换为屏幕上的实际像素，这个阶段就叫做重绘节点。"></a>最终，我们通过构造渲染树和回流阶段，我们知道了哪些节点是可见的，以及可见节点的样式和具体的信息(位置、大小)，那么我们就可以将渲染树的每个节点都转换为屏幕上的实际像素，这个阶段就叫做重绘节点。</h5><h4 id="什么时候发生回流和重绘"><a href="#什么时候发生回流和重绘" class="headerlink" title="什么时候发生回流和重绘"></a>什么时候发生回流和重绘</h4><h5 id="现在我们知道了，当页面布局发生变化的时候，就需要回流，比如以下几种情况："><a href="#现在我们知道了，当页面布局发生变化的时候，就需要回流，比如以下几种情况：" class="headerlink" title="现在我们知道了，当页面布局发生变化的时候，就需要回流，比如以下几种情况："></a>现在我们知道了，当页面布局发生变化的时候，就需要回流，比如以下几种情况：</h5><ul>
+        <h3>为什么会有回流和重绘</h3>
+<h4>在页面加载的时候，浏览器会把 HTML 代码解析成 DOM 树，在这个 DOM 树里面包含了所有的文本节点、元素节点和属性节点。浏览器会从根结点遍历每一个可见节点（1），，找到每个可见节点在 CSSOM 树中找到对应的规则并应用。再根据每个可见节点及其对应样式，组合成渲染树。</h4>
+<p>&lt;!-- more --&gt;</p>
+<h5>（1）可见的节点为：显示在渲染树上的节点（渲染书只包含显示节点）。不可见节点为 script、meta、link，或者没有通过 css 进行隐藏的节点</h5>
+<h3>什么是回流</h3>
+<h5>我们通过构造渲染树，我们将可见 DOM 节点以及它对应的样式结合起来可是我们还要计算它们的确切位置和大小，这个计算的阶段就是回流。</h5>
+<h5>为了弄清每个 DOM 对象的大小和位置，浏览器从渲染树的根节点开始遍历，我们可以以下面这个 demo 来演示：</h5>
+<p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;div style=<span class="string">"width: 50%"</span>&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  &lt;div style=<span class="string">"width: 50%"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">&lt;<span class="regexp">/div&gt;</span></span></pre></td></tr></table></figure></p>
+<h5>我们可以看到，第一个 div 将节点的显示尺寸设置为视口宽度的 50%，第二个 div 将其尺寸设置为父节点的 50%。而在回流这个阶段，我们就需要根据视口具体的宽度，将其转为实际的像素值。</h5>
+<h3>什么是重绘</h3>
+<h5>最终，我们通过构造渲染树和回流阶段，我们知道了哪些节点是可见的，以及可见节点的样式和具体的信息(位置、大小)，那么我们就可以将渲染树的每个节点都转换为屏幕上的实际像素，这个阶段就叫做重绘节点。</h5>
+<h4>什么时候发生回流和重绘</h4>
+<h5>现在我们知道了，当页面布局发生变化的时候，就需要回流，比如以下几种情况：</h5>
+<ul>
 <li>添加和删除可见的 dom 元素</li>
 <li>元素位置发生变化</li>
 <li>元素尺寸发生变化</li>
@@ -192,18 +201,25 @@
 <li>页面刚开始渲染的时候</li>
 <li>浏览器窗口尺寸改变</li>
 </ul>
-<h5 id="注意：回流会触发重绘，但重绘不一定会触发回流"><a href="#注意：回流会触发重绘，但重绘不一定会触发回流" class="headerlink" title="注意：回流会触发重绘，但重绘不一定会触发回流"></a>注意：回流会触发重绘，但重绘不一定会触发回流</h5><h4 id="浏览器优化机制"><a href="#浏览器优化机制" class="headerlink" title="浏览器优化机制"></a>浏览器优化机制</h4><h5 id="由于每次重排都会造成额外的计算消耗，因此大多数浏览器都会通过队列化修改并批量执行来优化重排过程。浏览器会将修改操作放入到队列里，直到过了一段时间或者操作达到了一个阈值，才清空队列。但是！当你获取布局信息的操作的时候，会强制队列刷新。"><a href="#由于每次重排都会造成额外的计算消耗，因此大多数浏览器都会通过队列化修改并批量执行来优化重排过程。浏览器会将修改操作放入到队列里，直到过了一段时间或者操作达到了一个阈值，才清空队列。但是！当你获取布局信息的操作的时候，会强制队列刷新。" class="headerlink" title="由于每次重排都会造成额外的计算消耗，因此大多数浏览器都会通过队列化修改并批量执行来优化重排过程。浏览器会将修改操作放入到队列里，直到过了一段时间或者操作达到了一个阈值，才清空队列。但是！当你获取布局信息的操作的时候，会强制队列刷新。"></a>由于每次重排都会造成额外的计算消耗，因此大多数浏览器都会通过队列化修改并批量执行来优化重排过程。浏览器会将修改操作放入到队列里，直到过了一段时间或者操作达到了一个阈值，才清空队列。但是！当你获取布局信息的操作的时候，会强制队列刷新。</h5><h3 id="如何减少回流和重绘"><a href="#如何减少回流和重绘" class="headerlink" title="如何减少回流和重绘"></a>如何减少回流和重绘</h3><h5 id="从代码优化角度考虑，我们需要减少它的发生次数，因此我们可以合并多次对-Dom-和样式的修改，然后一次处理掉。"><a href="#从代码优化角度考虑，我们需要减少它的发生次数，因此我们可以合并多次对-Dom-和样式的修改，然后一次处理掉。" class="headerlink" title="从代码优化角度考虑，我们需要减少它的发生次数，因此我们可以合并多次对 Dom 和样式的修改，然后一次处理掉。"></a>从代码优化角度考虑，我们需要减少它的发生次数，因此我们可以合并多次对 Dom 和样式的修改，然后一次处理掉。</h5><h5 id="优化前："><a href="#优化前：" class="headerlink" title="优化前："></a>优化前：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> el = <span class="built_in">document</span>.getElementById(<span class="string">'test'</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">el.style.padding = <span class="string">'5px'</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">el.style.borderLeft = <span class="string">'1px'</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">el.style.borderRight = <span class="string">'2px'</span>;</span></pre></td></tr></table></figure>
-
-<h5 id="优化后："><a href="#优化后：" class="headerlink" title="优化后："></a>优化后：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> el = <span class="built_in">document</span>.getElementById(<span class="string">'test'</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">el.style.cssText += <span class="string">'border-left: 1px; border-right: 2px; padding: 5px;'</span>;</span></pre></td></tr></table></figure>
-
-<h5 id="或者直接改类名"><a href="#或者直接改类名" class="headerlink" title="或者直接改类名"></a>或者直接改类名</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> el = <span class="built_in">document</span>.getElementById(<span class="string">'test'</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">el.className += <span class="string">' active'</span>;</span></pre></td></tr></table></figure>
-
-<h5 id="当我们需要对-DOM-对一系列修改的时候，可以通过以下步骤减少回流重绘次数："><a href="#当我们需要对-DOM-对一系列修改的时候，可以通过以下步骤减少回流重绘次数：" class="headerlink" title="当我们需要对 DOM 对一系列修改的时候，可以通过以下步骤减少回流重绘次数："></a>当我们需要对 DOM 对一系列修改的时候，可以通过以下步骤减少回流重绘次数：</h5><ul>
+<h5>注意：回流会触发重绘，但重绘不一定会触发回流</h5>
+<h4>浏览器优化机制</h4>
+<h5>由于每次重排都会造成额外的计算消耗，因此大多数浏览器都会通过队列化修改并批量执行来优化重排过程。浏览器会将修改操作放入到队列里，直到过了一段时间或者操作达到了一个阈值，才清空队列。但是！当你获取布局信息的操作的时候，会强制队列刷新。</h5>
+<h3>如何减少回流和重绘</h3>
+<h5>从代码优化角度考虑，我们需要减少它的发生次数，因此我们可以合并多次对 Dom 和样式的修改，然后一次处理掉。</h5>
+<h5>优化前：</h5>
+<p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> el = <span class="built_in">document</span>.getElementById(<span class="string">'test'</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">el.style.padding = <span class="string">'5px'</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">el.style.borderLeft = <span class="string">'1px'</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">el.style.borderRight = <span class="string">'2px'</span>;</span></pre></td></tr></table></figure></p>
+<h5>优化后：</h5>
+<p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> el = <span class="built_in">document</span>.getElementById(<span class="string">'test'</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">el.style.cssText += <span class="string">'border-left: 1px; border-right: 2px; padding: 5px;'</span>;</span></pre></td></tr></table></figure></p>
+<h5>或者直接改类名</h5>
+<p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> el = <span class="built_in">document</span>.getElementById(<span class="string">'test'</span>);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">el.className += <span class="string">' active'</span>;</span></pre></td></tr></table></figure></p>
+<h5>当我们需要对 DOM 对一系列修改的时候，可以通过以下步骤减少回流重绘次数：</h5>
+<ul>
 <li>使元素脱离文档流</li>
 <li>对其进行多从修改</li>
 <li>将元素带回文档中</li>
 </ul>
-<h5 id="该过程的第一步和第三步可能会引起回流，但是经过第一步之后，对-DOM-的所有修改都不会引起回流，因为它已经不在渲染树了。"><a href="#该过程的第一步和第三步可能会引起回流，但是经过第一步之后，对-DOM-的所有修改都不会引起回流，因为它已经不在渲染树了。" class="headerlink" title="该过程的第一步和第三步可能会引起回流，但是经过第一步之后，对 DOM 的所有修改都不会引起回流，因为它已经不在渲染树了。"></a>该过程的第一步和第三步可能会引起回流，但是经过第一步之后，对 DOM 的所有修改都不会引起回流，因为它已经不在渲染树了。</h5>
+<h5>该过程的第一步和第三步可能会引起回流，但是经过第一步之后，对 DOM 的所有修改都不会引起回流，因为它已经不在渲染树了。</h5>
+
       
 
       
